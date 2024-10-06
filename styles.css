@@ -1,0 +1,92 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #121212;
+    padding: 10px;
+    color: rgb(199, 199, 199);
+}
+
+.container {
+    text-align: center;
+}
+
+.sudoku-grid {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(30px, 1fr));
+    grid-template-rows: repeat(9, minmax(30px, 1fr));
+    grid-gap: 2px;
+    margin: 20px auto;
+    max-width: 90vmin;
+}
+
+.sudoku-grid input {
+    font-size: calc(10px + 1vw);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid rgb(199, 199, 199);
+    background-color: #1e1e1e;
+    color: rgb(199, 199, 199);
+    outline: none;
+    box-sizing: border-box;
+    -moz-appearance: textfield;
+}
+
+.sudoku-grid input::-webkit-outer-spin-button,
+.sudoku-grid input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.sudoku-grid input:nth-child(3n+1) {
+    border-left: 2px solid rgb(199, 199, 199);
+}
+
+.sudoku-grid input:nth-child(3n) {
+    border-right: 2px solid rgb(199, 199, 199);
+}
+
+.sudoku-grid input:nth-child(n+1):nth-child(-n+9),
+.sudoku-grid input:nth-child(n+28):nth-child(-n+36),
+.sudoku-grid input:nth-child(n+55):nth-child(-n+63) {
+    border-top: 2px solid rgb(199, 199, 199);
+}
+
+.sudoku-grid input:nth-child(n+19):nth-child(-n+27),
+.sudoku-grid input:nth-child(n+46):nth-child(-n+54),
+.sudoku-grid input:nth-child(n+73):nth-child(-n+81) {
+    border-bottom: 2px solid rgb(199, 199, 199);
+}
+
+.sudoku-grid input:focus {
+    border-color: rgb(199, 199, 199);
+}
+
+.sudoku-grid input.filled {
+    background-color: #333;
+    color: rgb(199, 199, 199);
+    font-weight: bold;
+}
+
+.sudoku-grid input.missing {
+    background-color: #2c2c2c;
+    color: #3cb331;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #45992b;
+    color: rgb(211, 211, 211);
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #337e1d;
+}
